@@ -30,11 +30,6 @@ module.exports = {
         text: 'Arlocal',
         link: '/arlocal'
       },
-      {
-        text: 'GitHub',
-        link: 'https://github.com/textury',
-        icon: '/img/github.svg'
-      }
     ]
   },
 };

@@ -10,27 +10,5 @@ module.exports = {
     editLinkText: "Edit this page on GitHub",
     docsBranch: 'main',
     docsDir: "docs",
-    nav: [
-      {
-        text: 'Overview',
-        link: '/'
-      },
-      {
-        text: 'Blockweave',
-        link: '/blockweave'
-      },
-      {
-        text: 'Arkb',
-        link: '/arkb'
-      },
-      {
-        text: 'Ardb',
-        link: '/ardb'
-      },
-      {
-        text: 'Arlocal',
-        link: '/arlocal'
-      },
-    ]
   },
 };

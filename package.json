@@ -6,8 +6,8 @@
   "author": "fuadop <fuadolatunji@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "vuepress dev .",
-    "build": "vuepress build ."
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
   },
   "devDependencies": {
     "markdown-it": "^12.2.0",

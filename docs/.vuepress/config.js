@@ -9,6 +9,16 @@ module.exports = {
     editLinkText: "Edit this page on GitHub",
     docsBranch: 'main',
     docsDir: "docs",
+    head: [
+      [
+        'link',
+        {
+          rel: 'icon',
+          type: 'image/svg+xml',
+          href: '/img/textury.svg'
+        }
+      ]
+    ],
     nav: [
       {
         text: 'Overview',

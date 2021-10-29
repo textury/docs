@@ -1,6 +1,7 @@
 module.exports = {
   title: 'Textury Docs',
   description: 'The act of permanence, building for the permaweb.',
+  theme: 'api',
   themeConfig: {
     sidebarDepth: 2,
     logo: '/img/textury.svg',
@@ -9,16 +10,6 @@ module.exports = {
     editLinkText: "Edit this page on GitHub",
     docsBranch: 'main',
     docsDir: "docs",
-    head: [
-      [
-        'link',
-        {
-          rel: 'icon',
-          type: 'image/svg+xml',
-          href: '/img/textury.svg'
-        }
-      ]
-    ],
     nav: [
       {
         text: 'Overview',

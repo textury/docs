@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'Textury Docs',
+  title: 'Textury',
   description: 'The act of permanence, building for the permaweb.',
   theme: 'api',
   themeConfig: {

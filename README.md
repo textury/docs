@@ -1,6 +1,6 @@
 ---
 home: true
-title: Textury Docs 
+title: Textury 
 description: The art of permanence. We are a decentralised Community of developers building for the permaweb. 
 actionText: Get Started
 actionLink: /blockweave

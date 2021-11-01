@@ -13,7 +13,7 @@ Arweave deploy that saves you cost
 
 <Block>
 
-# Features
+## Features
 
 - No file size limit.
 - No amount of files limit.
@@ -23,13 +23,13 @@ Arweave deploy that saves you cost
 
 <Block>
 
-# Installation
+## Installation
 
 Arkb runs using NODEJS and NPM. You must have both installed on your machine for it to work.
 <br/>
 To use arkb in your terminal, you have to install it globally.
 
-## Using NPM:
+### Using NPM:
   ```sh
   npm install -g arkb
   ```
@@ -38,7 +38,7 @@ To use arkb in your terminal, you have to install it globally.
     npm install -g arkb
   </Example>
 
-## Using YARN legacy:
+### Using YARN legacy:
   ```sh
   yarn global add arkb
   ```
@@ -53,11 +53,11 @@ To use arkb in your terminal, you have to install it globally.
 
 <Block>
 
-# Usage
+## Usage
 
 Arkb is used in the command line.
 
-## Deploy a folder
+### Deploy a folder
 
 Quickly deploy a folder to the arweave network.
 
@@ -66,6 +66,10 @@ Quickly deploy a folder to the arweave network.
 
     arkb deploy ./folder --wallet /path/to/my/wallet.json
   </Example>
+
+</Block>
+
+<Block>
 
 ## Arkb commands
 

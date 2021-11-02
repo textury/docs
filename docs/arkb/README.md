@@ -73,12 +73,7 @@ Quickly deploy a folder to the arweave network.
 <Block>
 
 ## Arkb commands
-
-</Block>
-
-<Block>
-
-## Balance
+# Balance
 
 Gets the current balance of your wallet.
 
@@ -104,7 +99,7 @@ This would prompt you to input your password
 
 <Block>
 
-## Deploy
+# Deploy
 
 Deploys a directory or file.
 
@@ -142,5 +137,79 @@ This command can also be used with the `--gateway` flag. Incase you don't want t
 <Block>
 
 # Help
+
+Shows usage help for all arkb commands.
+
+<Example>
+  ```sh
+  arkb help
+  ```
+
+</Example>
+
+</Block>
+
+<Block>
+
+# Network
+
+Gets the current network info.
+<br/>
+By default it uses the mainnet ([arweave.net](https://arweave.net)).
+
+<Example>
+  ```sh
+  arkb network
+  ```
+
+</Example>
+
+To change the network, the `--gateway` flag is used.
+
+<Example>
+  ```sh
+  arkb network --gateway http://localhost:1984
+  ```
+
+</Example>
+
+</Block>
+
+<Block>
+
+# Status
+
+Checks the status of a transaction, using the transaction ID
+
+<Example>
+  ```sh
+  arkb status <txid>
+  ```
+
+</Example>
+
+Doing this checks the status of the transaction on the mainnet. To use another gateway use the `--gateway` flag.
+
+<Example>
+  ```sh
+  arkb status <txid> --gateway http://localhost:1984
+  ```
+
+</Example>
+
+</Block>
+
+<Block>
+
+# Version
+
+Shows the current arkb version number.
+
+<Example>
+  ```sh
+  arkb version 
+  ```
+
+</Example>
 
 </Block>

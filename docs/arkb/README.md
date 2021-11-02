@@ -213,3 +213,31 @@ Shows the current arkb version number.
 </Example>
 
 </Block>
+
+<Block>
+
+# Wallet Save
+
+Saves a wallet, removes the need for using the `--wallet` flag.
+
+<Example>
+  ```sh
+  arkb wallet-save /path/to/my/wallet.json
+  ```
+</Example>
+
+</Block>
+
+<Block>
+
+# Wallet Forget 
+
+Removes a previously saved wallet.
+
+<Example>
+  ```sh
+  arkb wallet-forget
+  ```
+</Example>
+
+</Block>

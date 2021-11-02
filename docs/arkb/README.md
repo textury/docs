@@ -65,6 +65,7 @@ Quickly deploy a folder to the arweave network.
     # Deploy a folder 
 
     arkb deploy ./folder --wallet /path/to/my/wallet.json
+
   </Example>
 
 </Block>
@@ -73,6 +74,73 @@ Quickly deploy a folder to the arweave network.
 
 ## Arkb commands
 
-## Arkb flags
+</Block>
+
+<Block>
+
+## Balance
+
+Gets the current balance of your wallet.
+
+<Example>
+  ```sh
+  arkb balance --wallet /path/to/my/wallet.json
+  ```
+
+</Example>
+
+If you have saved a wallet previously using the `wallet-save` or `ws` command, you don't need to pass the `--wallet` flag to this command.
+
+<Example>
+  ```sh
+  arkb balance
+  ```
+
+</Example>
+
+This would prompt you to input your password
+
+</Block>
+
+<Block>
+
+## Deploy
+
+Deploys a directory or file.
+
+<Example>
+  ```sh
+  arkb deploy ./folder --wallet /path/to/my/wallet.json
+  ```
+
+</Example>
+
+If you have saved a wallet previously using the `wallet-save` or `ws` command, you don't need to pass the `--wallet` flag to this command.
+
+<Example>
+  ```sh
+  arkb deploy ./folder 
+  ```
+
+</Example>
+
+This would prompt you to input your password
+
+<br/>
+
+This command can also be used with the `--gateway` flag. Incase you don't want to deploy to the mainnet.
+
+<Example>
+  ```sh
+  arkb deploy ./folder --gateway http://localhost:1984
+  ```
+
+</Example>
+
+</Block>
+
+<Block>
+
+# Help
 
 </Block>

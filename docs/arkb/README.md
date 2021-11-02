@@ -241,3 +241,42 @@ Removes a previously saved wallet.
 </Example>
 
 </Block>
+
+<Block>
+
+# Wallet Export 
+
+Exports a previously saved wallet.
+
+<Example>
+  ```sh
+  arkb wallet-export
+  ```
+</Example>
+
+</Block>
+
+<Block>
+
+# Transfer 
+
+Send funds to an arweave wallet
+
+<Example>
+  ```sh
+  arkb transfer <wallet_address> <amount> --wallet /path/to/my/wallet.json 
+  ```
+</Example>
+
+If you have saved a wallet previously using the `wallet-save` or `ws` command, you don't need to pass the `--wallet` flag to this command.
+
+<Example>
+  ```sh
+  arkb transfer <wallet_address> <amount> 
+  ```
+
+</Example>
+
+This would prompt you to input your password
+
+</Block>

@@ -395,7 +395,7 @@ Submit transactions using `transaction.post()` which is suitable for small trans
     // HTTP response codes (200 - server received the transaction, 4XX - invalid transaction, 5XX - error)
   </Example>
 
-__N.B__. The `200` response does not mean that the transaction has mined & confirmed, and that a txid can be used as if it's immutable. It just means that a node has received your transaction. See [Get a transaction status](###get-a-transaction-status) for more detail on how to correctly determine that your transaction has been mined & confirmed.
+__N.B__. The `200` response does not mean that the transaction has mined & confirmed, and that a txid can be used as if it's immutable. It just means that a node has received your transaction. See [Get a transaction status](/blockweave/#get-a-transaction-status) for more detail on how to correctly determine that your transaction has been mined & confirmed.
 
 </Block>
 

@@ -442,3 +442,179 @@ There is also an async iterator interface to chunk uploading, but this method me
   </Example>
 
 </Block>
+
+<Block>
+
+### Fees
+
+By default Blockweave charges a 10% fee on every submitted transaction. This is fully optional and can be changed in two ways.
+
+  <Example>
+    // From post()
+    await transaction.post(feePercent = 0.1);
+
+    // From singAndPost()
+    await transaction.signAndPost(jwk, null, feePercent = 0.1);
+  </Example>
+
+</Block>
+
+<Block>
+
+### Get a transaction status
+
+Remember: Just like other blockchain-style systems (like Bitcoin and Ethereum), you should always ensure that your transaction has received a number of confirmations in blocks before you assume that the transaction has been fully accepted by the network.
+
+  <Example>
+    blockweave.transactions.getStatus('bNbA3TEQVL60xlgCcqdz4ZPHFZ711cZ3hmkpGttDt_U').then(res => {
+        console.log(res);
+        // {
+        //  status: 200,
+        //  confirmed: {
+        //    block_height: 140151,
+        //    block_indep_hash: 'OR1wue3oBSg3XWvH0GBlauAtAjBICVs2F_8YLYQ3aoAR7q6_3fFeuBOw7d-JTEdR',
+        //    number_of_confirmations: 20
+        //  }
+        //}
+    })
+  </Example>
+
+__N.B.__ We strongly advise that you check the status and number of confirmations for a given txid before integrating it elsewhere (for example, if you plan to integrate a txid into an NFT contract), even if you have received a ‘200’ status response.
+
+</Block>
+
+<Block>
+
+### Get a transaction
+
+Fetch a transaction from the connected arweave node. The data and tags are base64 encoded, these can be decoded using the built in helper methods.
+
+<br/>
+
+__Update since v1.9.0__ Due to how the API has evolved over time and with larger transaction support, the `data` field is no longer guaranteed to be returned from the network as part of the transaction json, therefore, it is not recommended that you use this function for fetching data anymore. You should update your applications to use `blockweave.transactions.getData()` instead, this will handle small transactions, as well as the reassembling of chunks for larger ones, it can also benefit from gateway optimisations.
+
+  <Example>
+    const transaction = blockweave.transactions.get('hKMMPNh_emBf8v_at1tFzNYACisyMQNcKzeeE1QE9p8').then(transaction => {
+      console.log(transaction);
+        // Transaction {
+        //   'format': 1,
+        //   'id': 'hKMMPNh_emBf8v_at1tFzNYACisyMQNcKzeeE1QE9p8',
+        //   'last_tx': 'GW7p6NoGJ495tAoUjU5GLxIH52gqOgk5j78gQv3j0ebvldAlw6VgIUv_lrMNGI72',
+        //   'owner': 'warLaSbicZm1nx9ucf-_5i91CWgmNOcnFJfyJdloCtsbenBhLrcGH472kKTZyuEAp2lSKlZ0NFCT2r2z-0...',
+        //   'tags': [
+        //     {
+        //       'name': 'QXBwLU5hbWU',
+        //       'value': 'd2VpYm90LXNlYXJjaC13ZWlicw'
+        //     }
+        //   ],
+        //   'target': ',
+        //   'quantity': '0',
+        //   'data': 'iVBORw0KGgoAAAANSUhEUgAAArIAAADGCAYAAAAuVWN-AAAACXBIWXMAAAsSAAA...'
+        //   'data_size': '36795',
+        //   'data_tree': [],
+        //   'data_root': ',
+        //   'reward': '93077980',
+        //   'signature': 'RpohCHVl5vzGlG4R5ybeEuhs556Jv7rWOGaZCT69cpIei_j9b9sAetBlr0...'
+        // }
+    });
+  </Example>
+
+</Block>
+
+<Block>
+
+### Get a transaction data
+
+You can get the transaction data from a transaction ID without having to get the entire transaction.
+
+  <Example>
+  // Get the base64url encoded string
+    blockweave.transactions.getData('bNbA3TEQVL60xlgCcqdz4ZPHFZ711cZ3hmkpGttDt_U').then(data => {
+      console.log(data);
+      // CjwhRE9DVFlQRSBodG1sPgo...
+    });
+
+    // Get the data decoded to a Uint8Array for binary data
+    blockweave.transactions.getData('bNbA3TEQVL60xlgCcqdz4ZPHFZ711cZ3hmkpGttDt_U', {decode: true}).then(data => {
+      console.log(data);
+      // Uint8Array [10, 60, 33, 68, ...]
+    });
+
+    // Get the data decode as string data
+    blockweave.transactions.getData('bNbA3TEQVL60xlgCcqdz4ZPHFZ711cZ3hmkpGttDt_U', {decode: true, string: true}).then(data => {
+      console.log(data);
+      // <!DOCTYPE HTML>...
+    });
+  </Example>
+
+</Block>
+
+<Block>
+
+### Decode tags from transaction
+
+  <Example>
+    const transaction = blockweave.transactions.get('bNbA3TEQVL60xlgCcqdz4ZPHFZ711cZ3hmkpGttDt_U').then(transaction => {
+
+      transaction.get('tags').forEach(tag => {
+        let key = tag.get('name', {decode: true, string: true});
+        let value = tag.get('value', {decode: true, string: true});
+        console.log(`${key} : ${value}`);
+      });
+      // Content-Type : text/html
+      // User-Agent : ArweaveDeploy/1.1.0
+    });
+  </Example>
+
+</Block>
+
+<Block>
+
+## Blocks
+
+Blocks are base elements of Arweave's blockweave data structure. Each block is linked to two prior blocks: the previous block in the "chain" (as with traditional blockchain protocols), and a block from the previous history of the blockchain (the "recall block"). Each block contains a list of zero to many transactions.
+
+</Block>
+
+<Block>
+
+### Get a block by indep_hash
+
+Gets block data for given independent hash (see page 63. of [yellow-paper](https://www.arweave.org/yellow-paper.pdf) for details).
+
+  <Example>
+    const result = await blockweave.blocks.get("zbUPQFA4ybnd8h99KI9Iqh4mogXJibr0syEwuJPrFHhOhld7XBMOUDeXfsIGvYDp"); 
+    console.log(result)
+    // {
+    //   "nonce": "6jdzO4FzS4EVaQVcLBEmxm6uN5-1tqBXW24Pzp6JsRQ",
+    //   "previous_block": "iNgEv6vf9nIrxLWeEu-vPNHFftEh0kfOnx0qd6NKUOc8Z3WeMeOmAmdOHwSUFAGn",
+    //   "timestamp": 1624183433,
+    //   "last_retarget": 1624183433,
+    //   "diff": "115792089220940710686296942055695413965527953310049630981189590430430626054144",
+    //   "height": 711150,
+    //   "hash": "_____8V8BkM8Cyja5ZFJcc7HfX33eM4BKDAvcEBn22s",
+    //   "indep_hash": "zbUPQFA4ybnd8h99KI9Iqh4mogXJibr0syEwuJPrFHhOhld7XBMOUDeXfsIGvYDp",
+    //   "txs": [ ...
+  </Example>
+
+</Block>
+
+<Block>
+
+### Get current block
+
+Gets a block data for current block, i.e., block with indep_hash.
+
+  <Example>
+    const {current} = await blockweave.network.getInfo();
+  </Example>
+
+  <Example>
+    const result = await blockweave.blocks.getCurrent(); 
+    console.log(result)
+    // {
+    //   "indep_hash": "qoJwHSpzl6Ouo140HW2DTv1rGOrgfBEnHi5sHv-fJt_TsK7xA70F2QbjMCopLiMd",
+    //   ...
+  </Example>
+
+</Block>

@@ -1,0 +1,17 @@
+{
+  "name": "docs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/textury/docs.git",
+  "author": "fuadop <fuadolatunji@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
+  },
+  "devDependencies": {
+    "markdown-it": "^12.2.0",
+    "vuepress": "^1.8.2",
+    "vuepress-theme-api": "^1.0.1"
+  }
+}

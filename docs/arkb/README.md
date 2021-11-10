@@ -280,3 +280,174 @@ If you have saved a wallet previously using the `wallet-save` or `ws` command, y
 This would prompt you to input your password
 
 </Block>
+
+<Block>
+
+## Arkb flags
+
+# --auto-confirm
+
+Skips the confirm screen
+
+  <Example>
+    ```sh
+    arkb deploy ./folder --auto-confirm
+    ```
+
+  </Example>
+
+</Block>
+
+<Block>
+
+# --concurrency
+
+Flag for multi thread, default is 5.
+
+  <Example>
+    ```sh
+    arkb deploy ./folder --concurrency 10
+
+    # Using the alias
+    arkb deploy ./folder -c 10
+    ```
+
+  </Example>
+
+</Block>
+
+<Block>
+
+# --debug
+
+Display log messages
+
+  <Example>
+    ```sh
+    arkb deploy ./folder --debug 
+    ```
+
+  </Example>
+
+</Block>
+
+<Block>
+
+# --force
+
+Force a redeploy of all the files
+
+  <Example>
+    ```sh
+    arkb deploy ./folder --force 
+
+    # Using the alias
+    arkb deploy ./folder -f
+    ```
+
+  </Example>
+
+</Block>
+
+<Block>
+
+# --gateway
+
+Set the gateway hostname or ip address. This is used when you don't want to use `arweave.net` as gateway.
+
+  <Example>
+    ```sh
+    arkb deploy ./folder --gateway http://localhost:1984 
+
+    # Using the alias
+    arkb deploy ./folder -g http://localhost:1984
+    ```
+
+  </Example>
+
+</Block>
+
+<Block>
+
+# --help
+
+Show arkb usage help.
+
+  <Example>
+    ```sh
+    arkb --help
+
+    # Using the alias
+    arkb -h
+    ```
+
+  </Example>
+
+</Block>
+
+<Block>
+
+# --ipfs-publish
+
+Publish to Arweave+IPFS.
+
+  <Example>
+    ```sh
+    arkb deploy ./folder --ipfs-publish
+    ```
+
+  </Example>
+
+</Block>
+
+<Block>
+
+# --timeout
+
+Set the request timeout.
+
+  <Example>
+    ```sh
+    # 20s timeout
+    arkb network --timeout 20000  
+
+    # using alias
+    arkb network -t 20000
+    ```
+
+  </Example>
+
+</Block>
+
+<Block>
+
+# --use-bundler
+
+Use the ans104 bundler.
+
+  <Example>
+    ```sh
+    arkb deploy ./folder --use-bundler https://bundler.net
+    ```
+
+  </Example>
+
+</Block>
+
+<Block>
+
+# --wallet
+
+Set the key file path.
+
+  <Example>
+    ```sh
+    arkb deploy ./folder --wallet /path/to/my/wallet.json
+
+    # using alias
+    arkb deploy ./folder -w /path/to/my/wallet.json
+    ```
+
+  </Example>
+
+</Block>
